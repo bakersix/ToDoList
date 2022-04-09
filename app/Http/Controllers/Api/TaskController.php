@@ -16,8 +16,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
-	return TaskResource::collection($tasks);
+	$user = auth()->user();
+        $tasks = $user->tasks;
+	return json_encode($tasks);
     }
 
     /**
@@ -38,7 +39,16 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $request->validate([
+                'title' => 'required',
+                'user_id' => 'required'
+        ]);
+
+	$user = auth()->user();
+
+        $tasks = Task::create(array_merge($request->all(), ['created_by' => $user->id]));
+
+        return new TaskResource($tasks);
     }
 
     /**
@@ -72,7 +82,14 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        //
+        $request->validate([
+                'title' => 'required',
+                'user_id' => 'required'
+        ]);
+
+        $task->update($request->all());
+
+        return new TaskResource($task);
     }
 
     /**
@@ -83,6 +100,8 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        $task->delete();
+
+        return response(null, 204);
     }
 }
