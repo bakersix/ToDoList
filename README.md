@@ -17,12 +17,6 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-
-
 
 <div align="center">
 
@@ -92,7 +86,7 @@ This is an example of how to list things you need to use the software and how to
   ```sh
 	sudo apt install mysql
   ```
-*PHP
+* PHP
   ```sh
 	sudo apt install openssl php-common php-curl php-json php-mbstring php-mysql php-xml php-zip
   ```
@@ -136,8 +130,10 @@ API Authentication is completed via an Auth Bearer Token. This token can be retr
 ### Managing Tasks
 
 The following endpoints are allowed:
-GET: /api/tasks (Returns a list of all tasks for the authenticated user)
-POST: /api/tasks {Required Parameters: title, user_id} {Optional Parameters: description, due_date} (Creates a new task assigned to the user_id)
-PUT: /api/tasks/{task_id}  {Required Parameters: title, user_id} {Optional Parameters: description, due_date} (Modifies the specified task)
-DELETE: /api/tasks/{task_id} (Deletes the specified task)  
+   ```sh
+   GET: /api/tasks (Returns a list of all tasks for the authenticated user)
+   POST: /api/tasks {Required Parameters: title, user_id} {Optional Parameters: description, due_date} (Creates a new task assigned to the user_id)
+   PUT: /api/tasks/{task_id}  {Required Parameters: title, user_id} {Optional Parameters: description, due_date} (Modifies the specified task)
+   DELETE: /api/tasks/{task_id} (Deletes the specified task)  
+   ```
 <p align="right">(<a href="#top">back to top</a>)</p>
