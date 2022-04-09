@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+		    <input type="button" class="btn btn-flat btn-primary" style="width: 40%; font-size:1.3rem" onClick="location.href='{{ route('tasks.index') }}'" value="To-Do List">
                 </div>
             </div>
         </div>
